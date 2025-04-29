@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Assessment System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="toggle-btn" id="toggleBtn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            
+            <div class="sidebar-header">
+                <h2>Project Assessment</h2>
+                <p>Assessor: admin@university.edu</p>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-title">Main Menu</div>
+                <div class="menu-item active" data-panel="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                
+                <div class="menu-title">Assessment</div>
+                <div class="menu-item" data-panel="projects">
+                    <i class="fas fa-tasks"></i>
+                    <span>Projects</span>
+                </div>
+                <div class="menu-item" data-panel="submissions">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Submissions</span>
+                </div>
+                <div class="menu-item" data-panel="evaluations">
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>Evaluations</span>
+                </div>
+                
+                <div class="menu-title">Management</div>
+                <div class="menu-item" data-panel="criteria">
+                    <i class="fas fa-list-ol"></i>
+                    <span>Criteria</span>
+                </div>
+                <div class="menu-item" data-panel="teams">
+                    <i class="fas fa-users"></i>
+                    <span>Teams</span>
+                </div>
+                
+                <div class="menu-title">Reports</div>
+                <div class="menu-item" data-panel="results">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Results</span>
+                </div>
+                <div class="menu-item" data-panel="export">
+                    <i class="fas fa-file-export"></i>
+                    <span>Export Data</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1 id="panelTitle">Project Assessment Dashboard</h1>
+                </div>
+                <div class="user-info">
+                    <img src="user.svg" alt="User">
+                    <span>Admin</span>
+                </div>
+            </div>
+            
+            <!-- Dashboard Panel -->
+            <div class="content-panel active" id="dashboard-panel">
+                <h2>Assessment Overview</h2>
+                
+                <div class="dashboard-cards">
+                    <!-- Projects Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon projects">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">24</div>
+                        <div class="card-title">Active Projects</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info" data-panel="projects">View projects <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Teams Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon teams">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">18</div>
+                        <div class="card-title">Student Teams</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info" data-panel="teams">Manage teams <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Submissions Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon submissions">
+                                <i class="fas fa-file-upload"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">42</div>
+                        <div class="card-title">Submissions</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info" data-panel="submissions">Review <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Assessments Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon assessments">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">35</div>
+                        <div class="card-title">Completed Assessments</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info" data-panel="evaluations">View all <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Criteria Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon criteria">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">12</div>
+                        <div class="card-title">Assessment Criteria</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info" data-panel="criteria">Configure <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Students Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon students">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">86</div>
+                        <div class="card-title">Students Enrolled</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info">View list <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Faculty Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon faculty">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">7</div>
+                        <div class="card-title">Faculty Assessors</div>
+                        <div class="card-footer">
+                            <a href="#" class="more-info">Manage <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects Panel -->
+            <div class="content-panel" id="projects-panel">
+                <div class="panel-header">
+                    <h2>Project Management</h2>
+                    <div class="panel-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <button class="btn btn-primary" id="addProjectBtn">
+                            <i class="fas fa-plus"></i> Add Project
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project ID</th>
+                                <th>Project Name</th>
+                                <th>Team</th>
+                                <th>Start Date</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PRJ-2023-001</td>
+                                <td>E-commerce Platform</td>
+                                <td>Team Alpha</td>
+                                <td>2023-09-15</td>
+                                <td>2023-12-10</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PRJ-2023-002</td>
+                                <td>Inventory Management</td>
+                                <td>Team Beta</td>
+                                <td>2023-09-20</td>
+                                <td>2023-12-15</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PRJ-2023-003</td>
+                                <td>Student Portal</td>
+                                <td>Team Gamma</td>
+                                <td>2023-10-01</td>
+                                <td>2023-12-20</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PRJ-2023-004</td>
+                                <td>Library Management</td>
+                                <td>Team Delta</td>
+                                <td>2023-10-10</td>
+                                <td>2023-12-25</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Submissions Panel -->
+            <div class="content-panel" id="submissions-panel">
+                <div class="panel-header">
+                    <h2>Project Submissions</h2>
+                    <div class="panel-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Submission ID</th>
+                                <th>Project</th>
+                                <th>Team</th>
+                                <th>Submitted On</th>
+                                <th>Status</th>
+                                <th>Score</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SUB-2023-001</td>
+                                <td>E-commerce Platform</td>
+                                <td>Team Alpha</td>
+                                <td>2023-12-05</td>
+                                <td><span class="badge badge-success">Evaluated</span></td>
+                                <td>87/100</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SUB-2023-002</td>
+                                <td>Inventory Management</td>
+                                <td>Team Beta</td>
+                                <td>2023-12-10</td>
+                                <td><span class="badge badge-warning">Pending Review</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SUB-2023-003</td>
+                                <td>Student Portal</td>
+                                <td>Team Gamma</td>
+                                <td>2023-12-15</td>
+                                <td><span class="badge badge-warning">Pending Review</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Evaluations Panel -->
+            <div class="content-panel" id="evaluations-panel">
+                <div class="panel-header">
+                    <h2>Project Evaluations</h2>
+                    <div class="panel-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Evaluation ID</th>
+                                <th>Project</th>
+                                <th>Team</th>
+                                <th>Evaluated On</th>
+                                <th>Evaluator</th>
+                                <th>Score</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EVAL-2023-001</td>
+                                <td>E-commerce Platform</td>
+                                <td>Team Alpha</td>
+                                <td>2023-12-06</td>
+                                <td>Prof. Smith</td>
+                                <td>87/100</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>EVAL-2023-002</td>
+                                <td>Inventory Management</td>
+                                <td>Team Beta</td>
+                                <td>2023-12-11</td>
+                                <td>Prof. Johnson</td>
+                                <td>92/100</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <p>Project Assessment System  | Developed by Shoolini University CSE Students</p>
+            </div>
+        </div>
+    </div>
+   
+    <script src="dashboard.js">
+       
+    </script>
+</body>
+</html>

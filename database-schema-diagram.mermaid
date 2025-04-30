@@ -1,0 +1,131 @@
+erDiagram
+    FACULTY {
+        int faculty_id PK
+        varchar first_name
+        varchar last_name
+        varchar email
+        varchar phone
+        varchar department
+        varchar position
+        date hire_date
+        varchar specialization
+        text bio
+        varchar photo_url
+        int department_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    DEPARTMENTS {
+        int department_id PK
+        varchar name
+        text description
+        int head_faculty_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    PROJECTS {
+        int project_id PK
+        varchar title
+        text description
+        date start_date
+        date end_date
+        enum status
+        decimal budget
+        varchar funding_source
+        enum priority
+        varchar project_code
+        varchar keywords
+        varchar document_url
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    FACULTY_PROJECTS {
+        int faculty_project_id PK
+        int faculty_id FK
+        int project_id FK
+        enum role
+        date join_date
+        date end_date
+        text contribution
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    PUBLICATIONS {
+        int publication_id PK
+        int project_id FK
+        varchar title
+        date publication_date
+        varchar journal_name
+        varchar authors
+        varchar doi
+        text citation
+        text abstract
+        varchar link
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    MILESTONES {
+        int milestone_id PK
+        int project_id FK
+        varchar title
+        text description
+        date due_date
+        date completion_date
+        enum status
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    FUNDING {
+        int funding_id PK
+        int project_id FK
+        varchar source
+        decimal amount
+        varchar grant_number
+        date start_date
+        date end_date
+        text description
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    PROJECT_DOCUMENTS {
+        int document_id PK
+        int project_id FK
+        varchar title
+        varchar file_type
+        varchar file_path
+        date upload_date
+        text description
+        int uploaded_by FK
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    USERS {
+        int user_id PK
+        varchar username
+        varchar password
+        int faculty_id FK
+        enum role
+        datetime last_login
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    FACULTY ||--o{ FACULTY_PROJECTS : participates_in
+    PROJECTS ||--o{ FACULTY_PROJECTS : has_members
+    PROJECTS ||--o{ PUBLICATIONS : has
+    PROJECTS ||--o{ MILESTONES : contains
+    PROJECTS ||--o{ FUNDING : receives
+    PROJECTS ||--o{ PROJECT_DOCUMENTS : has
+    FACULTY ||--o{ PROJECT_DOCUMENTS : uploads
+    DEPARTMENTS ||--o{ FACULTY : contains
+    FACULTY ||--o{ USERS : has_account
+    DEPARTMENTS }o--|| FACULTY : headed_by
